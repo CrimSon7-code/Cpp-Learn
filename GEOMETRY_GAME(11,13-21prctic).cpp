@@ -152,9 +152,71 @@ int main()
                 system("pause");
             }
             break;
+        case 4:
+            cout << "\nФигура: “Треугольник”\n";
+
+            int typeChoice;
+            cout << "[ 1 ] Заполненный\n";
+            cout << "[ 2 ] Пустой\n";
+            cout << "Выберите тип: ";
+            cin >> typeChoice;
+
+            int size;
+            cout << "Размер (высота): ";
+            cin >> size;
+
+            char texture;
+            cout << "Текстура: ";
+            cin >> texture;
+
+            cout << "\nРезультат:\n";
+
+            if (typeChoice == 1) {
+                // Заполненный треугольник
+                for (int i = 1; i <= size; ++i) {
+                    // Вывод пробелов для выравнивания
+                    for (int j = 0; j < size - i; ++j) {
+                        cout << "  ";
+                    }
+                    // Вывод символов треугольника
+                    for (int j = 0; j < 2 * i - 1; ++j) {
+                        cout << texture << "  ";
+                    }
+                    cout << "\n";
+                }
+            }
+            else if (typeChoice == 2) {
+                // Пустой треугольник (каркас)
+                for (int i = 1; i <= size; ++i) {
+                    // Вывод пробелов для выравнивания
+                    for (int j = 0; j < size - i; ++j) {
+                        cout << "  ";
+                    }
+                    if (i == 1) {
+                        // Верхушка треугольника
+                        cout << texture << "\n";
+                    }
+                    else if (i == size) {
+                        // Нижняя основание - заполненное
+                        for (int j = 0; j < 2 * i - 1; ++j) {
+                            cout << texture << "  ";
+                        }
+                        cout << "\n";
+                    }
+                    else {
+                        // Средняя часть - рамка
+                        cout << texture;
+                        for (int j = 0; j < 2 * i - 3; ++j) {
+                            cout << "  ";
+                        }
+                        cout << texture << "\n";
+                    }
+                }
+            }
         case 0:
             is_exit = true;
             break;
+
         default:
             cout << "Ошибка, попробуйте еще раз.";
             break;
