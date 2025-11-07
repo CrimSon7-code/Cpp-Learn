@@ -17,11 +17,12 @@ int main()
     while (!is_exit) {
         clearConsole();
         cout << "Программа геометрические фигуры" << endl;
-        cout << "Выберите действие: \n" << "0. Выход\n" << "1. Линия\n" << "2. Квадрат\n"<<"3. Прямоугольник\n" << endl;
+        cout << "Выберите действие: \n" << "0. Выход\n" << "1. Линия\n" << "2. Квадрат\n" << "3. Прямоугольник\n4. Треугольник\n5. Решетка\n6. Крест\n" << endl;
 
         cin >> mainchoice;
         switch (mainchoice) {
         case 1:
+        {
             clearConsole();
             int lineType;
             cout << "Выбрана: Линия" << endl;
@@ -30,7 +31,6 @@ int main()
             cout << "Выберите тип: ";
             cin >> lineType;
             int length;
-            int width;
             if (lineType == 1) {
                 cout << "Длина линии: ";
                 cin >> length;
@@ -58,7 +58,9 @@ int main()
                 break;
             }
             break;
+        }
         case 2:
+        {
             clearConsole();
             int squareType;
             cout << "Выбран: Квадрат" << endl;
@@ -66,6 +68,7 @@ int main()
             cout << "2.  Пустой\n\n";
             cout << "Выберите тип: ";
             cin >> squareType;
+            int length;
             if (squareType == 1) {
                 cout << "Размер: ";
                 cin >> length;
@@ -96,14 +99,16 @@ int main()
                         else {
                             cout << " ";
                         }
-                        
+
                     }
                     cout << endl;
                 }
                 system("pause");
             }
             break;
+        }
         case 3:
+        {
             clearConsole();
             int rectType;
             cout << "Выбран: Прямоугольник" << endl;
@@ -111,6 +116,8 @@ int main()
             cout << "2.  Пустой\n\n";
             cout << "Выберите тип: ";
             cin >> rectType;
+            int length;
+            int width;
             if (rectType == 1) {
                 cout << "Длина: ";
                 cin >> length;
@@ -152,59 +159,54 @@ int main()
                 system("pause");
             }
             break;
-        case 4:
+        }
+        case 4: {
+            clearConsole();
             cout << "\nФигура: “Треугольник”\n";
 
-            int typeChoice;
-            cout << "[ 1 ] Заполненный\n";
-            cout << "[ 2 ] Пустой\n";
+            int triType;
+            cout << "1. Заполненный\n";
+            cout << "2. Пустой\n";
             cout << "Выберите тип: ";
-            cin >> typeChoice;
+            cin >> triType;
 
             int size;
             cout << "Размер (высота): ";
             cin >> size;
 
-            char texture;
+            string texture;
             cout << "Текстура: ";
             cin >> texture;
 
             cout << "\nРезультат:\n";
 
-            if (typeChoice == 1) {
-                // Заполненный треугольник
+            if (triType == 1) {
                 for (int i = 1; i <= size; ++i) {
-                    // Вывод пробелов для выравнивания
                     for (int j = 0; j < size - i; ++j) {
                         cout << "  ";
                     }
-                    // Вывод символов треугольника
-                    for (int j = 0; j < 2 * i - 1; ++j) {
+                    for (int k = 0; k < 2 * i - 1; ++k) {
                         cout << texture << "  ";
                     }
                     cout << "\n";
                 }
+                system("pause");
             }
-            else if (typeChoice == 2) {
-                // Пустой треугольник (каркас)
+            else if (triType == 2) {
                 for (int i = 1; i <= size; ++i) {
-                    // Вывод пробелов для выравнивания
                     for (int j = 0; j < size - i; ++j) {
                         cout << "  ";
                     }
                     if (i == 1) {
-                        // Верхушка треугольника
                         cout << texture << "\n";
                     }
                     else if (i == size) {
-                        // Нижняя основание - заполненное
                         for (int j = 0; j < 2 * i - 1; ++j) {
-                            cout << texture << "  ";
+                            cout << texture << " ";
                         }
                         cout << "\n";
                     }
                     else {
-                        // Средняя часть - рамка
                         cout << texture;
                         for (int j = 0; j < 2 * i - 3; ++j) {
                             cout << "  ";
@@ -212,18 +214,80 @@ int main()
                         cout << texture << "\n";
                     }
                 }
+                system("pause");
             }
-        case 0:
-            is_exit = true;
+            break;
+        }
+        case 5: {
+            clearConsole();
+            cout << "\nФигура: “Решетка”\n";
+            int size;
+            cout << "Размер: ";
+            cin >> size;
+            string texture;
+            cout << "Текстура: ";
+            cin >> texture;
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (i % 2 == 0) {
+                        if (j % 2 == 0)
+                            cout << ". ";
+                        else
+                            cout << texture << " ";
+                    }
+                    else {
+                        cout << texture << " ";
+                    }
+                }
+                cout << "\n";
+            }
+            system("pause");
+            break;
+        }
+        case 6: {
+            clearConsole();
+            cout << "Выбрана: Крест" << endl;
+            int size;
+            cout << "Размер (нечетное число): ";
+            cin >> size;
+            if (size % 2 == 0) {
+                cout << "Пожалуйста, введите нечетное число.\n";
+                break;
+            }
+            string texture;
+            cout << "Текстура: ";
+            cin >> texture;
+            int center = size / 2;
+
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (i == center || j == center)
+                        cout << texture;
+                    else
+                        cout << ". ";
+                }
+                cout << "\n";
+            }
+
+            system("pause");
             break;
 
+        }
+        case 0:
+        {
+            is_exit = true;
+            system("pause");
+            break;
+        }
         default:
+        {
             cout << "Ошибка, попробуйте еще раз.";
             break;
+        }
         }
     }
 
 
 
     return 0;
- }
+}
