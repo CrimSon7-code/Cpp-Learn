@@ -257,22 +257,21 @@ int main()
             string texture;
             cout << "Текстура: ";
             cin >> texture;
-            int center = size / 2;
 
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    if (i == center || j == center)
+                    if (i == j || j == size - i - 1) {
                         cout << texture;
-                    else
-                        cout << ". ";
+                    }
+                    else {
+                        cout << " ";
+                    }
                 }
-                cout << "\n";
+
+                system("pause");
+                break;
+
             }
-
-            system("pause");
-            break;
-
-        }
         case 0:
         {
             is_exit = true;
@@ -285,9 +284,10 @@ int main()
             break;
         }
         }
+        }
+
+
+
+        return 0;
     }
-
-
-
-    return 0;
 }
