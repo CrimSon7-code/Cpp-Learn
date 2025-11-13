@@ -17,7 +17,7 @@ int main()
     while (!is_exit) {
         clearConsole();
         cout << "Программа геометрические фигуры" << endl;
-        cout << "Выберите действие: \n" << "0. Выход\n" << "1. Линия\n" << "2. Квадрат\n" << "3. Прямоугольник\n4. Треугольник\n5. Решетка\n6. Крест\n" << endl;
+        cout << "Выберите действие: \n" << "0. Выход\n" << "1. Линия\n" << "2. Квадрат\n" << "3. Прямоугольник\n4. Треугольник\n5. Решетка\n6. Крест\n7. Плюс\n8. Ромб\n9. Змейка\n10. Рекурсивный квадрат" << endl;
 
         cin >> mainchoice;
         switch (mainchoice) {
@@ -262,7 +262,6 @@ int main()
 
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    // Рисуем крестик по диагоналям
                     if (i == j || i + j == size - 1)
                         cout << texture <<" ";
                     else
@@ -270,6 +269,113 @@ int main()
                 }
                 cout << "\n";
             }
+            system("pause");
+            break;
+        }
+        case 7: {
+            clearConsole();
+            cout << "Выбрана: Плюс" << endl;
+            int size;
+            cout << "Размер (нечетное число): ";
+            cin >> size;
+            string texture;
+            cout << "Текстура: ";
+            cin >> texture;
+            if (size % 2 == 0) {
+                cout << "Пожалуйста, введите нечетное число.\n";
+                system("pause");
+                continue;
+
+            }
+            int center = size / 2;
+
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (i == center || j == center)
+                        cout << texture<<" ";
+                    else
+                        cout << ". ";
+                }
+                cout << "\n";
+            }
+        }
+        case 8: {
+            clearConsole();
+            cout << "Выбрана: Плюс" << endl;
+            int size;
+            cout << "Размер: ";
+            cin >> size;
+            string texture;
+            cout << "Текстура: ";
+            cin >> texture;
+            int mid = size / 2;
+            for (int i = 0; i <= mid; ++i) {
+                for (int j = 0; j < mid - i; ++j) cout << " ";
+                for (int j = 0; j < 2 * i + 1; ++j) {
+                    if (j == 0 || j == 2 * i) cout << texture;
+                    else cout << " ";
+                }
+                cout << "\n";
+            }
+            for (int i = mid - 1; i >= 0; --i) {
+                for (int j = 0; j < mid - i; ++j) cout << " ";
+                for (int j = 0; j < 2 * i + 1; ++j) {
+                    if (j == 0 || j == 2 * i) cout << texture;
+                    else cout << " ";
+                }
+                cout << "\n";
+            }
+            system("pause");
+            break;
+        }
+        case 9: {
+            clearConsole();
+            cout << "Выбрана: Змейка" << endl;
+            int size;
+            cout << "Размер: ";
+            cin >> size;
+            string texture;
+            cout << "Текстура: ";
+            cin >> texture;
+            int scoreZ = 1;
+            for (int i=1; i <= size+1; i++) {
+                if (i % 2 == 0) {
+                    if (scoreZ % 2 != 0) {
+                        for (int j = 0; j <= size;j++) {
+                            cout << ". ";
+                        }
+                        cout << texture;
+                        scoreZ++;
+                    }
+                    else{
+                        cout << texture;
+                        for (int j = 0; j <= size; j++) {
+                            cout << ". ";
+                        }
+                        scoreZ++;
+                    }
+                }
+                else {
+                    
+                    for (int j = 0; j <= size; j++) {
+                        cout << texture<<" ";
+                    }
+                    
+                }
+                cout << "\n";
+            }
+            system("pause");
+            break;
+        }        
+        case 10: {
+            clearConsole();
+            cout << "Выбрана: Рекурсивный квадрат" << endl;
+            int size;
+            cout << "Размер: ";
+            cin >> size;
+            string texture;
+            cout << "Текстура: ";
+            cin >> texture;
             system("pause");
             break;
         }
