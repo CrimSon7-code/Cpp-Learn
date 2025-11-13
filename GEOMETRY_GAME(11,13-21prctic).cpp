@@ -252,7 +252,9 @@ int main()
             cin >> size;
             if (size % 2 == 0) {
                 cout << "Пожалуйста, введите нечетное число.\n";
-                break;
+                system("pause");
+                continue;
+
             }
             string texture;
             cout << "Текстура: ";
@@ -260,22 +262,20 @@ int main()
 
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    if (i == j || j == size - i - 1) {
-                        cout << texture;
-                    }
-                    else {
-                        cout << " ";
-                    }
+                    // Рисуем крестик по диагоналям
+                    if (i == j || i + j == size - 1)
+                        cout << "* ";
+                    else
+                        cout << ". ";
                 }
-
-                system("pause");
-                break;
-
+                cout << "\n";
             }
+            system("pause");
+            break;
+        }
         case 0:
         {
             is_exit = true;
-            system("pause");
             break;
         }
         default:
@@ -284,10 +284,10 @@ int main()
             break;
         }
         }
-        }
+        
 
 
 
-        return 0;
+        
     }
 }
