@@ -264,7 +264,7 @@ int main()
                 for (int j = 0; j < size; j++) {
                     // Рисуем крестик по диагоналям
                     if (i == j || i + j == size - 1)
-                        cout << "* ";
+                        cout << texture <<" ";
                     else
                         cout << ". ";
                 }
@@ -281,6 +281,7 @@ int main()
         default:
         {
             cout << "Ошибка, попробуйте еще раз.";
+            system("pause");
             break;
         }
         }
