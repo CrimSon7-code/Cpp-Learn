@@ -376,6 +376,38 @@ int main()
             string texture;
             cout << "Текстура: ";
             cin >> texture;
+
+            for (int i = 1; i <= size;i++) {
+                if (i == 1 || i == size) {
+                    for (int j = 0; j <= size; j++) {
+                        cout << texture << " ";
+                    }
+                }
+                else {
+                    if(i = size/2){
+                        cout << texture;
+                        for (int j = 0; j < size; j++) {s
+                            if (j == size / 2) {
+                                cout << texture;
+                            }
+                            else {
+                                cout << ". ";
+                            }
+                            cout << texture;
+                        }
+                    }
+                    else {
+                        cout << texture;
+                        for (int j = 0; j <= size; j++) {
+                            if (i) {
+
+                            }
+                        }
+                        cout << texture;
+                    }
+                }
+                cout << endl;
+            }
             system("pause");
             break;
         }
