@@ -62,7 +62,7 @@ void settings() {
             switch (player1_s) {
                 case 1: {
                     cout<<"\nEnter the new nickname: ";
-                    cin >> player1_name;
+                    getline(cin, player1_name);
                     break;
                     }
                 case 2: {
@@ -91,7 +91,7 @@ void settings() {
                 }
                 default: {
                     cout << "Incorrect Input!";
-                    system("sleep");
+                    system("pause");
                     break;
                 }
             }
@@ -386,6 +386,7 @@ void main_menu() {
             
             is_exit = true;
             system("pause");
+            break;
         }
         default: {
             system("cls");
