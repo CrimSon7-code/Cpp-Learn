@@ -298,6 +298,8 @@ int main()
                 }
                 cout << "\n";
             }
+            system("pause");
+            break;
         }
         case 8: {
             clearConsole();
@@ -384,9 +386,9 @@ int main()
                     }
                 }
                 else {
-                    if(i = size/2){
+                    if(i == size/2){
                         cout << texture;
-                        for (int j = 0; j < size; j++) {s
+                        for (int j = 0; j < size; j++) {
                             if (j == size / 2) {
                                 cout << texture;
                             }
